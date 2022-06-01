@@ -1,0 +1,22 @@
+name: Memer Hu Vro
+on:
+  pull_request:
+    branches: [ main ]
+    
+  workflow_dispatch:
+
+jobs:
+  test:
+    permissions:
+      issues: write
+      pull-requests: write
+    runs-on: ubuntu-latest
+    steps:
+      - uses: mshick/add-pr-comment@v1
+        with:
+          message: |
+            Pull Request recieved in ${{ github.repository }} repository!
+            Jaldi kar bhai kal panvel nikalna hai!!
+          repo-token: ${{ secrets.GITHUB_TOKEN }}
+          repo-token-user-login: 'github-actions[bot]' 
+          allow-repeats: false 
